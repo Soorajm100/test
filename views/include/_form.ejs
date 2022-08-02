@@ -1,0 +1,98 @@
+ <!-- form handling -->
+ <form action="/api/users" method="POST" id="add_user">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="name" value="<%= name %>" placeholder="<%= name %>">
+        </div>
+        <div class="form-group">
+            <label for="Email" class="text-light">Email</label>
+            <input type="text" name="email" value="<%= email %>" placeholder="<%=email %>">
+        </div>
+        <div class="form-group">
+            <label for="Age" class="text-light">Age</label>
+            <input type="text" name="age" value="" placeholder="20">
+        </div>
+        <div class="form-group">
+            <label for="Ip-Address" class="text-light">Ip-Address</label>
+            <input type="text" name="ip" value="<%=ip %>" placeholder="<%=ip %>">
+        </div>
+        <div class="form-group">
+            <label for="Occupation" class="text-light">Occupation</label>
+            <input type="text" name="occupation" value=""  placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Phone" class="text-light">Phone no</label>
+            <input type="text" name="phone" value="" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gender" value="Male" >
+                <label for="radio-2" class="radio-label">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gender" value="Female" >
+                <label for="radio-3" class="radio-label">Female</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Latitude" class="text-light">Latitude</label>
+            <input type="text" name="latitude" value="" placeholder="17" id = "latitude" readonly>
+        </div>
+        <div class="form-group">
+            <label for="Longitude" class="text-light">Longitude</label>
+            <input type="text" name="longitude" value="" placeholder="17" id="longitude" readonly>
+        </div>
+        <input type="text" name="time" id="time" value="" placeholder="" readonly>
+        <input type="text" name="date" id="date" value="" placeholder="" readonly>
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+        
+
+    </div>
+</form>
+
+<script>
+ 
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+    }
+
+    function showPosition(position) {
+        document.getElementById("latitude").value = position.coords.latitude;
+        document.getElementById("longitude").value = position.coords.longitude;
+    }              
+
+    getLocation();
+
+    function getDateTime(){
+        const d = new Date();
+        let time = d.toTimeString();
+        let date = d.toDateString();
+        document.getElementById("time").value = time;
+        document.getElementById("date").value = date;
+    }
+
+    getDateTime();
+    
+</script>

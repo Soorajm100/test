@@ -1,0 +1,55 @@
+{
+  "name": "crud_app",
+  "version": "1.0.0",
+  "description": "crud application with express and mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev" :  "nodemon server.js "
+  },
+  "keywords": [
+    "crud",
+    "mongodb"
+  ],
+  "author": "akshay kashyap",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "chalk": "^5.0.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dns": "^0.2.2",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "google-auth-library": "^7.12.0",
+    "googleapis": "^95.0.0",
+    "http": "^0.0.1-security",
+    "ipware": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.1.5",
+    "morgan": "^1.10.0",
+    "node-mailer": "^0.1.1",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.6",
+    "passport": "^0.5.2",
+    "passport-google-oauth2": "^0.2.0",
+    "simple-node-logger": "^21.8.12",
+    "socket.io": "^4.4.1",
+    "twilio": "^3.75.1",
+    "xhr2": "^0.2.1"
+  },
+  "engines" : { 
+   
+    "node" : "14.x"
+  }
+   
+
+}

@@ -1,0 +1,159 @@
+
+<%- include('include/_headermaps') %>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    
+    <style>
+      #map {
+  height:600px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+    </style>
+<script>
+  // Initialize and add the map
+function initMap() {
+
+
+  var options = {
+        center: {lat: 13.0064823 , lng:74.7946007},
+        zoom: 20
+    }
+
+    //New Map
+    map = new google.maps.Map(document.getElementById("map"),options)
+
+    //listen for click on map location
+/*
+    google.maps.event.addListener(map, "click", (event) => {
+        //add Marker
+        addMarker({location:event.latLng});
+    })
+*/
+
+
+
+
+    //Add Markers to Array
+
+    let MarkerArray = [ {location:{lat: 13.0064823, lng: 74.7946007}, 
+        imageIcon: "https://img.icons8.com/nolan/2x/marker.png", 
+        content: `<h2>Current location</h2>`},
+
+        {location:{lat:13.009108, lng: 74.793116}},
+
+        {location:{lat: 13.15, lng: 74.3258},content: `<h2>Benidorm City</h2>` },
+        {location:{lat:13.011105,lng: 74.792212}},
+        {location : {lat :13.010747,lng : 74.794351}},
+        {location : {lat : 13.007439 , lng : 74.797005}},
+        {location : {lat :13.008745 , lng : 74.794877}},
+        {location : {lat : 13.007439 , lng :74.797005}},
+        {location : {lat :13.012596 ,lng:74.794303}},
+        {location : {lat : 13.01256,lng:74.796524}},
+        {location : { lat : 13.011249 ,lng : 74.797254}},
+        {location : { lat : 13.009559 , lng : 74.798307}},
+        {location  :{ lat : 13.006301 ,lng : 74.79445}},
+        {location : {lat: 13.005433,lng : 74.79962}}
+
+
+    ]
+
+    // loop through marker
+    for (let i = 0; i < MarkerArray.length; i++){
+        addMarker(MarkerArray[i]);
+
+    }
+
+    // Add Marker
+
+    function addMarker(property){
+
+        const marker = new google.maps.Marker({
+            position:property.location,
+            map:map,
+            //icon: property.imageIcon
+            });
+
+            // Check for custom Icon
+
+            if(property.imageIcon){
+                // set image icon
+                marker.setIcon(property.imageIcon)
+            }
+
+            if(property.content){
+
+            const detailWindow = new google.maps.InfoWindow({
+            content: property.content
+    });
+    
+  /*  marker.addListener("mouseover", () =>{
+        detailWindow.open(map, marker);
+    })*/
+}
+
+         
+
+
+
+    }
+
+
+}
+
+
+/*
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+        var mapOptions = {
+            center: LatLng,
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        var marker = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+        });
+        google.maps.event.addListener(marker, "click", function (e) {
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent(marker.title);
+            infoWindow.open(map, marker);
+        });
+    });
+} else {
+    alert('Geo Location feature is not supported in this browser.');
+}
+
+*/
+
+</script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYlca2xrNvUtoBvYEx2iIbuTXl7Fw9dBk&callback=initMap">
+</script>
+  </head>
+  <body>
+    <br><br>
+    <h2><center> Google Maps </center></h2>
+    <!--The div element for the map -->
+    <br><br><br>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+
+<!-- include header -->
+    <%- include('include/_newheader') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <section>
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-user" class="border-shadow">
+                    <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+                    </a>
+                 
+             
+            
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+             &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                         
+                  <a href="/dashboard" class="border-shadow">
+                    
+                <span class="text-gradient">Dashboard &nbsp;&nbsp;<i class="fas fa-user"></i></span>
+                </a>
+       
+            </div>
+
+            <!-- form handling -->
+            <form action="/protected" method="POST" >
+                <table class="table">
+                    <thead class="thead-dark">
+             
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>@Email</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>IP Address</th>
+                            <th>Occupation</th>
+                            <th>Phone no</th>
+                            <th>Status</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Action</th>
+                            
+                        </tr>
+         
+                    </thead>
+        
+                    <tbody>
+                        <%- include('include/_show') %>
+                    </tbody>
+           
+                </table>
+            </form>
+        </div>
+    </main>
+
+</section>
+    <style>
+        main{
+            zoom:90%;
+            left: 30%;
+             top: 10%;
+            margin-left: -25%;
+          position: absolute;
+          margin-top: -25%;
+        }
+        center{
+            position:80px;
+
+        }
+        #new{
+            left: 150%;
+        }
+
+   
+    </style>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
